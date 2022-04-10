@@ -1,0 +1,106 @@
+{
+  "name": "excalidraw",
+  "productName": "Excalidraw",
+  "version": "0.11.1",
+  "description": "Excalidraw",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\"",
+    "electron:generate-icons": "electron-icon-builder --input=./src/logo-180x180.png --output=build --flatten"
+  },
+  "keywords": [],
+  "author": {
+    "name": "heihei",
+    "email": "ljjopq123@163.com"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "name": "Excalidraw",
+        "productName": "Excalidraw",
+        "appId": "com.excalidraw.app",
+        "directories": {
+          "output": "build"
+        },
+        "asar": true,
+        "icon": "./build/icons/icon.icns",
+        "win32metadata": {
+          "CompanyName": "Excalidraw",
+          "FileDescription": "Excalidraw",
+          "OriginalFilename": "Excalidraw",
+          "ProductName": "Excalidraw",
+          "InternalName": "Excalidraw"
+        },
+        "win32": {
+          "target": [
+            {
+              "target": "nsis",
+              "arch": [
+                "x64"
+              ]
+            }
+          ]
+        },
+        "linux": {
+          "target": [
+            {
+              "target": "deb",
+              "arch": [
+                "x64"
+              ]
+            }
+          ]
+        },
+        "mac": {
+          "target": [
+            {
+              "target": "dmg",
+              "arch": [
+                "x64"
+              ]
+            }
+          ]
+        }
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "excalidraw"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "18.0.3",
+    "electron-icon-builder": "^2.0.1"
+  }
+}
