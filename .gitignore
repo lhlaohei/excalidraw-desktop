@@ -87,3 +87,7 @@ typings/
 
 # Electron-Forge
 out/
+node_modules/
+.vscode
+.git
+.gitignore
